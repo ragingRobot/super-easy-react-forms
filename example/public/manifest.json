@@ -1,0 +1,8 @@
+{
+  "short_name": "super-easy-react-forms",
+  "name": "super-easy-react-forms",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
