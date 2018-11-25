@@ -32,7 +32,7 @@ import { Form, Input, ValidationTypes } from "super-easy-react-forms";
 class Example extends Component {
   render() {
     return (
-      <Form>
+      <Form onSubmit={/* some method here */}>
         <Input name="required" legend="Legend" label="required" isRequired />
         <Input
           name="text only"
@@ -62,10 +62,10 @@ class Example extends Component {
 
 The Form component is used to wrap all of the other components that make up the form. It handles the state of all child components. All form elements are controlled.
 
-Each Form component has a built in submit button but you can also add other buttons by passing them in as child components.
+Each Form component has a built in submit button but you can also add other buttons by passing them in as child components. When the user submits valid input the forms onSubmit callback is passes an object containing all of the form values.
 
 ```jsx
-<Form>
+<Form onSubmit={/* some method here */}>
   <Input name="name" label="required" isRequired />
   <button>Extra Button</button>
 </Form>
@@ -78,6 +78,7 @@ The Input component works just like a normal HTML input tag but has a few extra 
 - name - the name of the element. Used to send data to the server. This is a required prop.
 - className - the class to add to the wrapper
 - errorMessage - text to show if there is a validation error
+- missingMessage - Text to show if there is no value and the field is required
 - isRequired - should this input be filled in?
 - label - the label text to show
 - legend - the legend text to show
@@ -100,6 +101,78 @@ The Input component works just like a normal HTML input tag but has a few extra 
   validation={value => {
     return value === 5;
   }}
+  onBlur={() => {
+    //do something
+  }}
+  onChange={() => {
+    //do something
+  }}
+/>
+```
+
+## TextArea Component
+
+The TextArea component is similar to the input component excapt itshould be used for largeramounts of text. here are the props you can pass in:
+
+- name - the name of the element. Used to send data to the server. This is a required prop.
+- className - the class to add to the wrapper
+- errorMessage - text to show if there is a validation error
+- missingMessage - Text to show if there is no value and the field is required
+- isRequired - should this input be filled in?
+- label - the label text to show
+- legend - the legend text to show
+- onBlur - called when the user leaves the input
+- onChange - called when the value changes
+- shouldPreventInvalid - stop the input of invalid characters
+- validation - a function to call to see if this field is valid
+- value - the value to show
+
+```jsx
+<TextArea
+  name="bio"
+  className="myClass"
+  label="required"
+  legend="Legend"
+  errorMessage="there was an error"
+  value="test"
+  isRequired
+  shouldPreventInvalid
+  validation={value => {
+    //some validation here
+  }}
+  onBlur={() => {
+    //do something
+  }}
+  onChange={() => {
+    //do something
+  }}
+/>
+```
+
+## CheckBox Component
+
+The CheckBox component is setup just like a normal html checkbox. The value field is used to setthe value that is used when the box is checked. If the box isn't checked the value is blank. The checked prop tells the component if the box should be filled. here are the props you can pass in:
+
+- name - the name of the element. Used to send data to the server. This is a required prop.
+- className - the class to add to the wrapper
+- missingMessage - Text to show if there is no value and the field is required
+- isRequired - should this input be filled in?
+- label - the label text to show
+- legend - the legend text to show
+- onBlur - called when the user leaves the input
+- onChange - called when the value changes
+- value - the value to set when the box is checked
+- checked - is the boxchecked
+
+```jsx
+<CheckBox
+  name="checkbox"
+  legend="Legend"
+  label="Test Check Box"
+  value="test"
+  missingMessage="you must select this"
+  checked
+  isRequired
   onBlur={() => {
     //do something
   }}

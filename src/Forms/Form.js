@@ -144,8 +144,13 @@ class Form extends Component {
     if (!this.isValid()) {
       return;
     }
-    //send the state
-    console.log(this.state);
+
+    //send the state to the callback
+    if (this.props.onSubmit) {
+      //removethe error and missing states
+      const { errors, missing, ...formResults } = this.state;
+      this.props.onSubmit(formResults);
+    }
   };
 
   /**
@@ -258,7 +263,8 @@ Form.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  submitText: PropTypes.string // the text for the submit button
+  submitText: PropTypes.string, // the text for the submit button
+  onSubmit: PropTypes.func // acallback for when a vaild form is submitted
 };
 
 Form.defaultProps = {
