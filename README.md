@@ -2,7 +2,7 @@
 
 > Easy to use form components for react
 
-[![NPM](https://img.shields.io/npm/v/super-easy-react-forms.svg)](https://www.npmjs.com/package/super-easy-react-forms)[![JavaScript Style Guide](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square")](https://prettier.io/)
+[![NPM](https://img.shields.io/npm/v/super-easy-react-forms.svg)](https://www.npmjs.com/package/super-easy-react-forms) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square")](https://prettier.io/)
 
 ## Try it out
 
