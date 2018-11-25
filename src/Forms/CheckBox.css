@@ -1,0 +1,14 @@
+.error {
+  border: 1px solid red;
+}
+.checkbox {
+  display: inline;
+  width: auto;
+  vertical-align: top;
+}
+
+.checkboxLabel {
+  display: inline;
+  vertical-align: top;
+  margin-left: 5px;
+}

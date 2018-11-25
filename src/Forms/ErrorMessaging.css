@@ -1,0 +1,14 @@
+.errorMessage {
+  font-family: arial;
+  font-size: 14px;
+  display: block;
+  color: red;
+  white-space: normal;
+  word-wrap: break-word;
+  width: 100%;
+  max-width: 635px;
+  font-weight: 500;
+  position: relative;
+  margin-top: -19px;
+  margin-bottom: 18px;
+}

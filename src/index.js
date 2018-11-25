@@ -1,22 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import Form from "./Forms/Form";
+import Input from "./Forms/Input";
+import TextArea from "./Forms/TextArea";
+import CheckBox from "./Forms/CheckBox";
+import ValidationTypes from "./Forms/ValidationTypes";
 
-import styles from './styles.css'
-
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
-
-  render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
-}
+// export Foo and Bar as named exports
+export { Form, Input, TextArea, CheckBox, ValidationTypes };
