@@ -33,42 +33,12 @@ class Example extends Component {
   render() {
     return (
       <Form onSubmit={/* some method here */}>
-        <Input name="required" legend="Legend" label="required" isRequired />
         <Input
           name="text only"
+          legend="Legend"
           label="text only"
           validation={ValidationTypes.TEXT}
           errorMessage="text only!!"
-        />
-        <div>
-          <Input
-            name="number"
-            label="numbers only"
-            validation={ValidationTypes.NUMBER}
-          />
-
-          <Input
-            name="numberOnly"
-            label="prevent invalid entry (numbers only)"
-            shouldPreventInvalid={true}
-            validation={ValidationTypes.NUMBER}
-          />
-        </div>
-        <p>
-          You can place any type of element inside of the form Component and
-          it will work just like a normal html form.
-        </p>
-        <TextArea
-          name="textArea"
-          label="Test Text Area"
-          missingMessage="please enter something"
-          isRequired
-        />
-        <CheckBox
-          name="checkbox"
-          label="Test Check Box"
-          value="test"
-          missingMessage="you must select this"
           isRequired
         />
       </Form>
@@ -79,7 +49,7 @@ class Example extends Component {
 
 ## Form Component
 
-The Form component is used to wrap all of the other components that make up the form. It handles the state of all child components. All form elements are controlled.
+The Form component is used to wrap all of the other components that make up the form. It handles the state of all child components. All form elements are controlled. You can also nest form elements inside of other html elements if you need to.
 
 Each Form component has a built in submit button but you can also add other buttons by passing them in as child components. When the user submits valid input the forms onSubmit callback is passes an object containing all of the form values.
 
