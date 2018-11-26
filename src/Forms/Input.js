@@ -32,32 +32,26 @@ class Input extends PureComponent {
 
   render() {
     const {
-      name,
-      type,
-      isRequired,
-      value,
+      onBlur,
+      onChange,
       isMissing,
       hasError,
-      placeholder
+      className,
+      ...props
     } = this.props;
+
+    //use the handlers here before the ones in the props
+    props.onBlur = this.handleBlur;
+    props.onChange = this.handleChange;
 
     const classList = cx(styleSheet.input, {
       [styleSheet.error]: isMissing || hasError
     });
 
     return (
-      <fieldset className={this.props.className}>
+      <fieldset className={className}>
         <LegendAndLabel {...this.props} />
-        <input
-          className={classList}
-          name={name}
-          onBlur={this.handleBlur}
-          type={type}
-          required={isRequired}
-          onChange={this.handleChange}
-          value={value}
-          placeholder={placeholder}
-        />
+        <input className={classList} {...props} />
         <ErrorMessaging {...this.props} />
       </fieldset>
     );
