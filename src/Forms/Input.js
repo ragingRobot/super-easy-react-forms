@@ -31,7 +31,15 @@ class Input extends PureComponent {
   };
 
   render() {
-    const { name, type, isRequired, value, isMissing, hasError } = this.props;
+    const {
+      name,
+      type,
+      isRequired,
+      value,
+      isMissing,
+      hasError,
+      placeholder
+    } = this.props;
 
     const classList = cx(styleSheet.input, {
       [styleSheet.error]: isMissing || hasError
@@ -48,6 +56,7 @@ class Input extends PureComponent {
           required={isRequired}
           onChange={this.handleChange}
           value={value}
+          placeholder={placeholder}
         />
         <ErrorMessaging {...this.props} />
       </fieldset>
@@ -70,12 +79,14 @@ Input.propTypes = {
   shouldPreventInvalid: PropTypes.bool, // stop the input of invalid characters
   type: PropTypes.string, //type of input default text
   validation: PropTypes.func, //a function to call to see if this field is valid
-  value: PropTypes.string //the value to show
+  value: PropTypes.string, //the value to show
+  placeholder: PropTypes.string //the placeholder text
 };
 
 Input.defaultProps = {
   isRequired: false,
-  type: "text"
+  type: "text",
+  missingMessage: "This field is required."
 };
 
 export default Input;

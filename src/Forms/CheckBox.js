@@ -69,7 +69,8 @@ CheckBox.propTypes = {
 CheckBox.defaultProps = {
   isRequired: false,
   checked: false,
-  value: "on"
+  value: "on",
+  missingMessage: "This field is required."
 };
 
 export default CheckBox;

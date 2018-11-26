@@ -31,7 +31,14 @@ class TextArea extends PureComponent {
   };
 
   render() {
-    const { name, isRequired, value, isMissing, hasError } = this.props;
+    const {
+      name,
+      isRequired,
+      value,
+      isMissing,
+      hasError,
+      placeholder
+    } = this.props;
 
     const classList = cx(styleSheet.textarea, {
       [styleSheet.error]: isMissing || hasError
@@ -46,6 +53,7 @@ class TextArea extends PureComponent {
           onBlur={this.handleBlur}
           required={isRequired}
           onChange={this.handleChange}
+          placeholder={placeholder}
           value={value}
         />
         <ErrorMessaging {...this.props} />
@@ -68,11 +76,13 @@ TextArea.propTypes = {
   onChange: PropTypes.func, //called when the value changes
   shouldPreventInvalid: PropTypes.bool, // stop the input of invalid characters
   validation: PropTypes.func, //a function to call to see if this field is valid
-  value: PropTypes.string //the value to show
+  value: PropTypes.string, //the value to show
+  placeholder: PropTypes.string //the placeholder text
 };
 
 TextArea.defaultProps = {
-  isRequired: false
+  isRequired: false,
+  missingMessage: "This field is required."
 };
 
 export default TextArea;

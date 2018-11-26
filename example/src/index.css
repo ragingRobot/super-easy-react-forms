@@ -139,3 +139,11 @@ form {
   justify-content: space-between;
   flex-flow: row wrap;
 }
+p {
+  margin-bottom: 20px;
+}
+
+form legend {
+  font-size: 20px;
+  font-weight: bold;
+}

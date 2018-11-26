@@ -27,49 +27,57 @@ export default class App extends Component {
         {!submitted && (
           <Form onSubmit={this.handleSubmit}>
             <Input
-              name="required"
-              legend="Legend"
-              label="required"
-              missingMessage="please enter something"
+              name="firstName"
+              legend="Send us all of your info"
+              label="First Name"
+              placeholder="First Name"
+              validation={ValidationTypes.TEXT}
+              errorMessage="Your name can't have numbers in it."
+              missingMessage="Please enter your first name"
               isRequired
             />
             <Input
-              name="text only"
-              label="text only"
+              name="lastName"
+              label="Last Name"
+              placeholder="Last Name"
               validation={ValidationTypes.TEXT}
-              errorMessage="text only!"
+              errorMessage="Your name can't have numbers in it."
+              missingMessage="Please enter your last name"
+              isRequired
             />
             <div className="withCols">
               <Input
                 name="number"
-                label="numbers only"
+                label="Favorite Number"
+                placeholder="Favorite Number"
                 validation={ValidationTypes.NUMBER}
-                errorMessage="numbers only!"
+                errorMessage="That's not a number."
               />
 
               <Input
                 name="numberOnly"
-                label="prevent invalid entry (numbers only)"
+                label="Second Favorite Number"
+                placeholder="Second Favorite Number"
                 shouldPreventInvalid={true}
                 validation={ValidationTypes.NUMBER}
               />
             </div>
 
             <p>
-              You can place any type of element inside of the form Component and
-              it will work just like a normal html form.
+              If you would like to send us a message, please add it here. This
+              is optional and your information will still be sent if you don't
+              add a message.
             </p>
             <TextArea
-              name="textArea"
-              label="Test Text Area"
-              missingMessage="please enter something"
-              isRequired
+              name="message"
+              label="Message (Optional)"
+              placeholder="Message (Optional)"
             />
             <CheckBox
               name="checkbox"
-              label="Test Check Box"
-              value="test"
-              missingMessage="you must select this"
+              label="Accept terms of use"
+              value="terms"
+              isRequired
             />
           </Form>
         )}
