@@ -7,6 +7,7 @@
 ## Try it out
 
 [Sample app here](https://ragingrobot.github.io/super-easy-react-forms)
+
 [![Edit x9l2ll7qyw](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/x9l2ll7qyw)
 
 ## Install
