@@ -97,7 +97,7 @@ The Input component works just like a normal HTML input tag but has a few extra 
 
 ## TextArea Component
 
-The TextArea component is similar to the input component excapt itshould be used for largeramounts of text. here are the props you can pass in:
+The TextArea component is similar to the input component excapt itshould be used for larger amounts of text. here are the props you can pass in:
 
 - name - the name of the element. Used to send data to the server. This is a required prop.
 - className - the class to add to the wrapper
@@ -136,7 +136,7 @@ The TextArea component is similar to the input component excapt itshould be used
 
 ## CheckBox Component
 
-The CheckBox component is setup just like a normal html checkbox. The value field is used to setthe value that is used when the box is checked. If the box isn't checked the value is blank. The checked prop tells the component if the box should be filled. here are the props you can pass in:
+The CheckBox component is setup just like a normal html checkbox. The value field is used to set the value that is used when the box is checked. If the box isn't checked the value is blank. The checked prop tells the component if the box should be filled. here are the props you can pass in:
 
 - name - the name of the element. Used to send data to the server. This is a required prop.
 - className - the class to add to the wrapper
@@ -184,7 +184,7 @@ return true if the value is valid.
 
 ## Validation Types
 
-To makevalidation eveneasier I have included a ValidationTypes object that has some prebuilt validation methods.
+To make validation even easier I have included a ValidationTypes object that has some prebuilt validation methods.
 Just pick the one you need and pass it in.
 
 so far I have these options:
@@ -199,7 +199,7 @@ so far I have these options:
 ## Required Fields
 
 I wanted to be able to show different messaging for missing values than other types of validation so I setup a prop
-specifically for required fields. Just add isRequired.
+specifically for required fields. Just add isRequired. By default the error message says "This field is required." but if you want to change it all you need to do is pass in your new message as the missingMessage prop.
 
 ```jsx
 <Input name="required-example" isRequired />
