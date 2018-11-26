@@ -12,17 +12,17 @@ class Input extends PureComponent {
    */
   handleChange = event => {
     const { shouldPreventInvalid, validation, onChange } = this.props;
-    let canProceeded = true;
+    let canProceed = true;
     if (shouldPreventInvalid && validation) {
-      canProceeded = validation(event.target.value);
+      canProceed = validation(event.target.value);
     }
-    if (onChange && canProceeded) {
+    if (onChange && canProceed) {
       onChange(event.target.value);
     }
   };
 
   /**
-   * This is used to forwarded the value to the onBlur callback.
+   * This is used to forward the value to the onBlur callback.
    */
   handleBlur = event => {
     if (this.props.onBlur) {

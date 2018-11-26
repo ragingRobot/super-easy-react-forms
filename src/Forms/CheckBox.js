@@ -17,7 +17,7 @@ class CheckBox extends PureComponent {
   };
 
   /**
-   * This is used to forwarded the value to the onBlur callback.
+   * This is used to forward the value to the onBlur callback.
    */
   handleBlur = event => {
     if (this.props.onBlur) {
