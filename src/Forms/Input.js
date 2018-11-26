@@ -37,6 +37,11 @@ class Input extends PureComponent {
       isMissing,
       hasError,
       className,
+      isRequired,
+      missingMessage,
+      errorMessage,
+      shouldPreventInvalid,
+      validation,
       ...props
     } = this.props;
 
@@ -51,7 +56,7 @@ class Input extends PureComponent {
     return (
       <fieldset className={className}>
         <LegendAndLabel {...this.props} />
-        <input className={classList} {...props} />
+        <input className={classList} required={isRequired} {...props} />
         <ErrorMessaging {...this.props} />
       </fieldset>
     );

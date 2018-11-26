@@ -37,6 +37,11 @@ class TextArea extends PureComponent {
       isMissing,
       hasError,
       className,
+      isRequired,
+      missingMessage,
+      errorMessage,
+      shouldPreventInvalid,
+      validation,
       ...props
     } = this.props;
 
