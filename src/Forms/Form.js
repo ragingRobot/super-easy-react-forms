@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import CheckBox from "./CheckBox";
+import Select from "./Select";
 
 class Form extends Component {
   /**
    * A list of all of the controlled component types that the form should look for and
    * store in the state
    */
-  static CONTROLLED_COMPONENTS = [Input, TextArea, CheckBox];
+  static CONTROLLED_COMPONENTS = [Input, TextArea, CheckBox, Select];
 
   /**
    * Here we are looking at all of the children passed into the form and adding their
@@ -35,37 +36,48 @@ class Form extends Component {
   }
 
   /**
-   * This recursive method looks through the children passed to it finding the components
+   * looks through the children passed to it finding the components
    * that should be controlled and adding their values to the state.
    * @param children - the children to look through
    */
   checkChildrenForInitialValues(children) {
     let initialValues = {};
     //look through all of the form inputs and add their values to the initial state
-    React.Children.toArray(children).forEach(child => {
-      if (Form.CONTROLLED_COMPONENTS.indexOf(child.type) > -1) {
-        //since checkboxes and radios work differently from all other components
-        //we need to check weather they are checked or not and set the value based on that.
-        if (typeof child.props.checked !== "undefined") {
-          initialValues[child.props.name] = child.props.checked
-            ? child.props.value
-            : "";
-        } else {
-          //if its just a normal input set the value
-          initialValues[child.props.name] = child.props.value
-            ? child.props.value
-            : "";
-        }
-      } else if (child.props && child.props.children) {
-        //if this isnt a controlled component it may be some kind of container
-        //so we look through it to see if there are any other components
-        initialValues = Object.assign(
-          initialValues,
-          this.checkChildrenForInitialValues(child.props.children)
-        );
+    this.getControlledChildren(children).forEach(child => {
+      //since checkboxes and radios work differently from all other components
+      //we need to check weather they are checked or not and set the value based on that.
+      if (typeof child.props.checked !== "undefined") {
+        initialValues[child.props.name] = child.props.checked
+          ? child.props.value
+          : "";
+      } else {
+        //if its just a normal input set the value
+        initialValues[child.props.name] = child.props.value
+          ? child.props.value
+          : "";
       }
     });
     return initialValues;
+  }
+
+  /**
+   * got through all of the children and pull out any controlled componets.
+   * Recursive to handle nested elements.
+   * @param {*} children
+   */
+  getControlledChildren(children) {
+    children = React.Children.toArray(children);
+    let controlled = [];
+    children.forEach(child => {
+      if (Form.CONTROLLED_COMPONENTS.indexOf(child.type) > -1) {
+        controlled.push(child);
+      } else if (child.props && child.props.children) {
+        controlled = controlled.concat(
+          this.getControlledChildren(child.props.children)
+        );
+      }
+    });
+    return controlled;
   }
 
   /**
@@ -74,7 +86,7 @@ class Form extends Component {
    */
   isValid = () => {
     const { errors, missing } = this.state;
-    const children = React.Children.toArray(this.props.children);
+    const children = this.getControlledChildren(this.props.children);
 
     children.forEach(child => {
       const values = this.getElementErrors(
@@ -202,6 +214,7 @@ class Form extends Component {
    */
   getChildrenWithAddedProps(children) {
     const { errors, missing } = this.state;
+
     return React.Children.toArray(children).map(element => {
       if (Form.CONTROLLED_COMPONENTS.indexOf(element.type) > -1) {
         //assemble the props needed for the component

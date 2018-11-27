@@ -139,11 +139,32 @@ form {
   justify-content: space-between;
   flex-flow: row wrap;
 }
+
+.withCols fieldset {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.withCols fieldset:last-child {
+  margin-right: 0px;
+}
 p {
-  margin-bottom: 20px;
+  margin: 20px 0px;
 }
 
 form legend {
   font-size: 20px;
   font-weight: bold;
+}
+
+button {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+  margin-top: 20px;
+}
+@media only screen and (max-width: 320px) {
+  .withCols fieldset {
+    margin-right: 0px;
+  }
 }

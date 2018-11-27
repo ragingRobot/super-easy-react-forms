@@ -5,7 +5,9 @@ import {
   Input,
   ValidationTypes,
   TextArea,
-  CheckBox
+  CheckBox,
+  Select,
+  Option
 } from "super-easy-react-forms";
 
 export default class App extends Component {
@@ -47,17 +49,24 @@ export default class App extends Component {
             />
             <div className="withCols">
               <Input
-                name="number"
-                label="Favorite Number"
-                placeholder="Favorite Number"
-                validation={ValidationTypes.NUMBER}
-                errorMessage="That's not a number."
+                name="city"
+                label="City"
+                placeholder="City"
+                validation={ValidationTypes.TEXT}
+                errorMessage="That's not a city name."
               />
 
+              <Select name="state" label="State" placeholder="State">
+                <Option value="1">Test 1</Option>
+                <Option value="2">Test 2</Option>
+                <Option value="3">Test 3</Option>
+                <Option value="4">Test 4</Option>
+              </Select>
+
               <Input
-                name="numberOnly"
-                label="Second Favorite Number"
-                placeholder="Second Favorite Number"
+                name="zip"
+                label="Zip Code"
+                placeholder="Zip Code"
                 shouldPreventInvalid={true}
                 validation={ValidationTypes.NUMBER}
               />
