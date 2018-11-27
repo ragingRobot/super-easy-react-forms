@@ -2,8 +2,8 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import styleSheet from "./Select.css";
-import LegendAndLabel from "./../LegendAndLabel";
-import ErrorMessaging from "./../ErrorMessaging";
+import LegendAndLabel from "./LegendAndLabel";
+import ErrorMessaging from "./ErrorMessaging";
 import Option from "./Option";
 
 class Select extends PureComponent {

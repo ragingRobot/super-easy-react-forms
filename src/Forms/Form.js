@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import CheckBox from "./CheckBox";
-import Select from "./SelectionBox/Select";
+import Select from "./Select";
 
 class Form extends Component {
   /**

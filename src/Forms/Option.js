@@ -1,8 +1,4 @@
 import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import cx from "classnames";
-import LegendAndLabel from "./../LegendAndLabel";
-import ErrorMessaging from "./../ErrorMessaging";
 
 class Option extends PureComponent {
   render() {
