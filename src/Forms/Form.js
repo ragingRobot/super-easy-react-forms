@@ -152,7 +152,9 @@ class Form extends Component {
    * Validate and submit the form
    */
   handleFormSubmit = event => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     if (!this.isValid()) {
       return;
     }
