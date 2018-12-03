@@ -167,6 +167,29 @@ The CheckBox component is setup just like a normal html checkbox. The value fiel
 />
 ```
 
+## Select Component
+
+The Select component is used for dropdown selections just like HTML select elements. By passing in Option components as children you can list any options the user can select.
+
+- name - the name of the element. Used to send data to the server. This is a required prop.
+- className - the class to add to the wrapper
+- missingMessage - Text to show if there is no value and the field is required
+- isRequired - should this input be filled in?
+- label - the label text to show
+- legend - the legend text to show
+- onBlur - called when the user leaves the input
+- onChange - called when the value changes
+- value - the value to set=
+- placeholder - the text to show if nothing is selected
+
+```jsx
+<Select name="selectTest" label="Select" placeholder="Select one" isRequired>
+  <Option value="1">Option one</Option>
+  <Option value="2">Option two</Option>
+  <Option value="3">Option three</Option>
+</Select>
+```
+
 ## Validation
 
 I tried to make the validation as flexibile as possible. To add validation to an input just pass a function to the
